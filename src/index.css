@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7e2 25%, #fecdd3 50%, #fbcfe8 75%, #fce7f3 100%);
+  background-attachment: fixed;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Romantic color scheme */
+:root {
+  --pink-glow: rgba(255, 107, 129, 0.3);
+  --rose-soft: #ffe4e6;
+  --heart-red: #ef4444;
+  --love-pink: #ec4899;
+}
+
+/* Enhanced heart shape */
+.heart {
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #ff6b81, #ff94b6, #ffb8c6);
+  transform: rotate(-45deg);
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 0 10px var(--pink-glow);
+}
+.heart:after, .heart:before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #ff6b81, #ff94b6, #ffb8c6);
+  border-radius: 50%;
+}
+.heart:before { top: -9px; left: 0; }
+.heart:after { left: 9px; top: 0; }
+
+/* Floating hearts animation */
+.floating-heart {
+  animation: floatHeart 8s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatHeart {
+  0%, 100% {
+    transform: translateY(0) rotate(-5deg) scale(1);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-15px) rotate(5deg) scale(1.1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-25px) rotate(-3deg) scale(1);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateY(-10px) rotate(3deg) scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+/* Enhanced buttons */
+.btn-primary {
+  @apply bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300 font-semibold;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+  @apply from-pink-600 to-rose-600;
+  box-shadow: 0 10px 40px -10px rgba(236, 72, 153, 0.5);
+}
+
+.btn-ghost {
+  @apply bg-white/80 backdrop-blur-sm border-2 border-pink-200 text-pink-600 px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 hover:border-pink-400 transform transition-all duration-300 font-semibold;
+}
+
+/* Glass card effect */
+.glass-card {
+  @apply bg-white/70 backdrop-blur-md rounded-2xl shadow-xl border border-white/50;
+}
+
+/* Romantic text glow */
+.text-glow {
+  text-shadow: 0 0 20px rgba(236, 72, 153, 0.4), 0 0 40px rgba(236, 72, 153, 0.2);
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Pulse glow for important elements */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(236, 72, 153, 0.6), 0 0 60px rgba(236, 72, 153, 0.3); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Smooth page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s ease-out;
+}
+
+/* Fade in animation */
+.fade-in { 
+  animation: fadeIn 0.8s ease-out both; 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Romantic title style */
+.romantic-title {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-rose-500 to-red-400 font-extrabold;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 4px rgba(236, 72, 153, 0.3));
+}
+
+/* Card hover effect */
+.hover-lift {
+  @apply transition-all duration-300;
+}
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -15px rgba(236, 72, 153, 0.4);
+}
+
+/* Music player fixed position */
+.music-player {
+  @apply fixed bottom-6 right-6 z-50;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fce7f3;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f472b6, #ec4899);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ec4899, #db2777);
+}
